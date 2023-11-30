@@ -13,18 +13,24 @@ class FlightBuilder {
         LocalDateTime threeDaysFromNow = LocalDateTime.now().plusDays(3);
         return Arrays.asList(
                 //A normal flight with two hour duration
+                // Нормальный полет с двухчасовой продолжительностью
                 createFlight(threeDaysFromNow, threeDaysFromNow.plusHours(2)),
                 //A normal multi segment flight
+                // Нормальный многосегенный полет
                 createFlight(threeDaysFromNow, threeDaysFromNow.plusHours(2),
                         threeDaysFromNow.plusHours(3), threeDaysFromNow.plusHours(5)),
                 //A flight departing in the past
+                // Полет, уходящий в прошлом
                 createFlight(threeDaysFromNow.minusDays(6), threeDaysFromNow),
                 //A flight that departs before it arrives
+                // Полет, который отправляется до его прибытия
                 createFlight(threeDaysFromNow, threeDaysFromNow.minusHours(6)),
                 //A flight with more than two hours ground time
+                // Полет с более чем двух часов
                 createFlight(threeDaysFromNow, threeDaysFromNow.plusHours(2),
                         threeDaysFromNow.plusHours(5), threeDaysFromNow.plusHours(6)),
                 //Another flight with more than two hours ground time
+                // Еще один рейс с более чем двух часов
                 createFlight(threeDaysFromNow, threeDaysFromNow.plusHours(2),
                         threeDaysFromNow.plusHours(3), threeDaysFromNow.plusHours(4),
                         threeDaysFromNow.plusHours(6), threeDaysFromNow.plusHours(7)));
